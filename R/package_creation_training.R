@@ -2,11 +2,24 @@
 #library(roxygen2)
 #library(devtools)
 
+#Configure startup to always load devtools
+##if (interactive()) {
+##  suppressMessages(require(devtools))
+##}
+
+# Check that all your package building tools are installed and up to date
+##devtools::dev_sitrep()
+
 #create package and indicate file path with the last item being the name of your new package
 #creates package structure and a skeleton of package files
 ##usethis::create_package("C:/Users/ADODGE/OneDrive - HC-SC PHAC-ASPC/Documents/DupSeq R Package Building/Training/mypackage")
 
 #.Rbuildignore lists files that we need to have around but that should not be included when building the R package from source.
+  # all files listed in this file will
+  ##use_build_ignore()
+  #To exclude a specific file or directory,  use use_build_ignore()
+  #Note that you must anchor the file name, or else it will exclude everything that contains the file name as well. Ie. "notes" would exclude endnotes, important_notes, etc.
+  #
 #.Rproj.user, if you have it, is a directory used internally by RStudio.
 #.gitignore anticipates Git usage and tells Git to ignore some standard, behind-the-scenes files created by R and RStudio
 #DESCRIPTION provides metadata about your package.
@@ -94,3 +107,54 @@
 # the pipe function is used so much that we will export the function itself into our package
 ##use_pipe(export = TRUE)
 
+# Renaming files
+##rename_files("package_creation_training", "renametest")
+
+#Create a README file
+##use_readme_rmd()
+#Render it
+##build_readme()
+
+# The lifecycle of an R package: Package States
+# Source
+  # Directory of files in a defined structure.
+# Bundled
+  # a bundled package has been comparessed into a single file. Extension .tar and.gz
+  # also known as "source tarballs
+  # Single file = .tar. Comparessed by gzip = .gz
+  # For transportation of packages
+# Binary
+  # package formats delivered by CRAN
+  #.zip files
+  #So users can use the package without having the rtools for package building
+# Installed
+  # install() or devtools::install_github() will change a package from
+  # the source, bundled or binary states and install it on the computer
+# in-memory
+  # Library(package) will add an installed package to the memory, making it
+  # available to direct use.
+
+# Good to keep the top-level of the source code the working directory
+# This will prevent problems with paths in different package states
+
+# check()ing your package
+  # Ensures all documentation is up to date
+  # bundles package before checking it (gets rid of temp files)
+
+
+# Navigating through your source files
+  # Press Ctrl and . at the same time to open a file navigator that will open the file you type into it
+  # Press Ctrl Shift F to search through all files for word
+
+# Tidyverse Style Guide
+  #Syntax:
+    #object naming. lowercase letters, numbers of _. Sperate words with _. Don't use .
+    # functions should be verbs, variables should be nouns
+    # avoid reusing variable and function names and don't copy names from other common variables or functions
+    # always put a space after a comma [1, 3] and never before [ , 3]bad [, 3]good
+    # don't put spaces around parentheses for regular function calls function(x, y, z) NOT function ( x, y, z )
+    # Place a space before and after () when used with if, for, or while : if (debug) {
+    # Place a space after () used for function arguments: function(x) { }
+    # { } should always have inner spaces
+    # operators should be surrounded by spaces: == + - <-
+    # NEVER SPACE: The operators with high precedence: ::, :::, $, @, [, [[, ^, unary -, unary +, and :.
