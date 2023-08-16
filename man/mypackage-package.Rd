@@ -6,7 +6,7 @@
 \alias{mypackage-package}
 \title{mypackage: For training}
 \description{
-Practice
+Practice building an R package to help me learn.
 }
 \author{
 \strong{Maintainer}: Annette Dodge \email{annette.dodge@hc-sc.gc.ca} (\href{https://orcid.org/YOUR-ORCID-ID}{ORCID})

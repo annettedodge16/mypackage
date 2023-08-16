@@ -53,5 +53,16 @@
 ##check()
 #this also prompted me to install rtools
 
-#use roxygen to create the documentation for the new function
-##usethis::use_roxygen_md()
+# Create Documentation for your new Function using roxygen
+#Go into the .R file for your function and type #'
+# @param lets you define the parameters
+# @return lets you define the output
+# @export will tag the function for exportation and get it into the namespace file. This allows the function to be available to the user after they load the package
+# @examples lets you show examples of your function
+
+#To create the .Rd file
+##document()
+##?testfx1
+# Note that some links won't be built until after the package is formally built and installed such as the example - help
+
+
