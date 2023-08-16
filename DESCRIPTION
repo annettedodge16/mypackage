@@ -4,7 +4,7 @@ Version: 0.0.0.9000
 Authors@R: 
     person("Annette", "Dodge", , "annette.dodge@hc-sc.gc.ca", role = c("aut", "cre"),
            comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: Practice
+Description: Practice building an R package to help me learn. 
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)

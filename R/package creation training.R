@@ -30,8 +30,19 @@
 
 #Adding functions
 ##usethis::use_r("testfx1")
+
 #We don't need to run the function, we will load it
+#load_all() simulates the installation and loading of a package as if you opened it with library(mypackage)
+#Note that any code that you don't want it to run again should be commented out
+#Your functions will not appear in the global env but will be available to you to use just by calling them
+
 ##load_all()
+
+# check that everything is in working order
+#It's good to check after every new addition
+
+##check()
+#this also prompted me to install rtools
 
 #use roxygen to create the documentation for the new function
 ##usethis::use_roxygen_md()
