@@ -65,4 +65,28 @@
 ##?testfx1
 # Note that some links won't be built until after the package is formally built and installed such as the example - help
 
+# Install the package into you library
+## install()
+## library(mypackage)
 
+# Unit Test your functions #
+# initialise testthat for unit testing
+##use_testthat()
+##use_test("testfx1") #This will open/create the test-function.R where you will write your test
+
+## test_that("addition works", {
+## expect_equal(testfx1(1,2), 3)
+## })
+
+# The above test will evaluate whether the output of the function is equal to the correct answer that you have supplied
+# To run all your tests:
+##test()
+# your tests will also run when you do check()
+
+
+# Using other packages in your package
+# This will tell your package to put the dplyr package into your imports (ie your dependencies)
+##use_package("dplyr")
+# You can now refer to dplyr functions using dplyr::fun()
+
+##### figure out how to bring in the pipe on its own
