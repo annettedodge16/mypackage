@@ -14,6 +14,15 @@
 #The R/ directory is the “business end” of your package. It will soon contain .R files with function definitions.
 #mypackage.Rproj is the file that makes this directory an RStudio Project.
 
+# Notes on Naming Conventions
+#https://cran.r-project.org/doc/manuals/R-exts.html#Package-structure
+# format should avoid ‘"’, ‘*’, ‘:’, ‘/’, ‘<’, ‘>’, ‘?’, ‘\’, and ‘|’ , spaces, and  ‘con’, ‘prn’, ‘aux’, ‘clock$’, ‘nul’, ‘com1’ to ‘com9’, and ‘lpt1’ to ‘lpt9’
+# best not to use uppercase
+
+#Version
+# 2-3 numbers
+# NOT decimal places. Ex. 0.0.9 < 0.0.75 because 9 < 75
+
 #creates a basic package documentation
 ##usethis::use_package_doc()
 #set the license for your package
