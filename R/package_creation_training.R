@@ -55,10 +55,12 @@
 
 # Create Documentation for your new Function using roxygen
 #Go into the .R file for your function and type #'
-# @param lets you define the parameters
-# @return lets you define the output
+# Requirements:
+# Title of function
+# @param definition of parameters
+# @return definition of the output
 # @export will tag the function for exportation and get it into the namespace file. This allows the function to be available to the user after they load the package
-# @examples lets you show examples of your function
+# @examples lets you show examples of your function (not required)
 
 #To create the .Rd file
 ##document()
@@ -89,4 +91,6 @@
 ##use_package("dplyr")
 # You can now refer to dplyr functions using dplyr::fun()
 
-##### figure out how to bring in the pipe on its own
+# the pipe function is used so much that we will export the function itself into our package
+##use_pipe(export = TRUE)
+
