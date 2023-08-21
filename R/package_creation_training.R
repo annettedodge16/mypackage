@@ -103,7 +103,17 @@
 # This will tell your package to put the dplyr package into your imports (ie your dependencies)
 ##use_package("dplyr")
 # You can now refer to dplyr functions using dplyr::fun()
-
+# you can set a minimum version for the package
+##usethis::use_package("dplyr", min_version = "1.0.0")
+##usethis::use_package("dplyr", min_version = TRUE) # This will make the min version be the one installed on your computer.
+# packages should never depend on tidyverse or devtools since these are meta-packages designed for convenience
+# you should identify one specific package that will actually implement the desired function.
+##n_hard_deps <- function(mypackage) {
+##       deps <- tools::package_dependencies(mypackage, recursive = TRUE)
+##       sapply(deps, length)
+##}
+##n_hard_deps("dplyr")
+# ^ this code will tell you how many dependencies a package has so you can see how heavy it is
 # the pipe function is used so much that we will export the function itself into our package
 ##use_pipe(export = TRUE)
 
@@ -158,3 +168,40 @@
     # { } should always have inner spaces
     # operators should be surrounded by spaces: == + - <-
     # NEVER SPACE: The operators with high precedence: ::, :::, $, @, [, [[, ^, unary -, unary +, and :.
+
+# styler is used to restyler a package into the tidyverse style You can access it from Addins,
+
+# We basically never want our code to have to modify the global environment or the working directory of the user
+# the env should be reserved for data that the user uploads themselves not anything to do with the package.
+# they warn against using set.seed()
+
+# Storing Data #
+# Exported Data: data/ folder Each file should be a .rda and created by save() containing a single R object w the same name as the file
+#Create data:
+##mypackage_data<-sample(1000)
+##usethis::use_data(mypackage_data)
+# users can access the data via
+##library(mypackage)
+##mypackage_data # Note that this loads the data into the global env which isn't ideal
+##mypackage::mypackage_data # this won't modify the global workspace
+
+
+# for large datasets, we can use compression settings ex bzip2, gzip, xz
+##usethis::use_data(compress =) for bzip2
+##save(compress =) is gzip
+
+# LazyData: true = use lazy_loading. This means that data won't occupy emory until you use them.
+
+# Preserve the origin of package data: include the code used to clean up and process your data fieles in the sources version of your package.
+# put this in data-raw/ and make sure to add it to .Rbuildignore
+##usethis::use_data_raw()
+##usethis::use_data_raw("mypackage_data")
+
+# Document the data: document the name of the dataset and save it in R/
+
+#ins/ when a pacakge is installed, everything in inst/ is copied to the top-level directory of the installed package.
+  # don't create a subdirectory that collides with any of the directoies that make up the official structure of the r package
+  # ex. DO NOT use inst/data or inst/man or inst/tests etc.
+  # ex. common to use inst/extdata
+  # inst/citation - citation() | usethis::use_citation()
+

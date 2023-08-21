@@ -9,7 +9,7 @@ test_that("testfx2 correctly calculates MF", {
   result <- testfx2(sample_data, mut_depth, total_depth)
 
   # Check if the column "MF" is calculated correctly
-  #added a tolerance so that it accepts small differences in rounding and floating decimals
+  # added a tolerance so that it accepts small differences in rounding and floating decimals
   expect_equal(result$MF, c(0.1, 0.0625, 0.06666667, 0.06, 0.075), tolerance = 1e-6)
 })
 
